@@ -11,21 +11,21 @@ import java.awt.font.*;
 
 public class Painter extends JFrame implements ActionListener {
 	private	Container c = getContentPane();
-	private	String menuBar[]={"ÀÉ®×(F)","½s¿è(E)","ÀËµø(V)","»¡©ú(H)"};
+	private	String menuBar[]={"æª”æ¡ˆ(F)","ç·¨è¼¯(E)","æª¢è¦–(V)","èªªæ˜(H)"};
 	private	String menuItem[][]={
-		{"¶}·sÀÉ®×(N)|78","¶}±ÒÂÂÀÉ(O)|79","Àx¦sÀÉ®×(S)|83","¥t¦s·sÀÉ(A)","µ²§ô(X)|88"},
-		{"´_­ì(U)|90","­«½Æ(R)|89","°Å¤U(T)|87","½Æ»s(C)|68","¶K¤W(P)|85"},
-		{"¤u¨ã½c(T)|84","¦â¶ô(C)|76","ª¬ºA¦C(S)","Äİ©ÊÄæ(M)"},
-		{"Ãö©ó¤pµe®a(A)"}
+		{"é–‹æ–°æª”æ¡ˆ(N)|78","é–‹å•ŸèˆŠæª”(O)|79","å„²å­˜æª”æ¡ˆ(S)|83","å¦å­˜æ–°æª”(A)","çµæŸ(X)|88"},
+		{"å¾©åŸ(U)|90","é‡è¤‡(R)|89","å‰ªä¸‹(T)|87","è¤‡è£½(C)|68","è²¼ä¸Š(P)|85"},
+		{"å·¥å…·ç®±(T)|84","è‰²å¡Š(C)|76","ç‹€æ…‹åˆ—(S)","å±¬æ€§æ¬„(M)"},
+		{"é—œæ–¼å°ç•«å®¶(A)"}
 	};
 	private	JMenuItem jMenuItem[][]=new JMenuItem[4][5];
 	private	JMenu jMenu[];
 	private	JCheckBoxMenuItem jCheckBoxMenuItem[] = new JCheckBoxMenuItem[4];
-	private	String ButtonName[]={"ª½½u","¯x«¬","¾ò¶ê","¶ê¨¤¯x«¬","¨©¤ó¦±½u","®°«¬","¦hÃä«¬","¹]µ§","¾ó¥ÖÀ¿","¤å¦r","¿ï¨ú"};
+	private	String ButtonName[]={"ç›´ç·š","çŸ©å‹","æ©¢åœ“","åœ“è§’çŸ©å‹","è²æ°æ›²ç·š","æ‰‡å‹","å¤šé‚Šå‹","é‰›ç­†","æ©¡çš®æ“¦","æ–‡å­—","é¸å–"};
 	private JToggleButton jToggleButton[];
     private ButtonGroup buttonGroup;
-	private	JPanel jPanel[]=new JPanel[5];//0¤º¼h,1Ã¸¹Ï°Ï,2¤u¨ã½c,3¦â¶ô,4Äİ©ÊÄæ
-	private	JLabel jLabel[]=new JLabel[1];//ª¬ºA¦C
+	private	JPanel jPanel[]=new JPanel[5];//0å…§å±¤,1ç¹ªåœ–å€,2å·¥å…·ç®±,3è‰²å¡Š,4å±¬æ€§æ¬„
+	private	JLabel jLabel[]=new JLabel[1];//ç‹€æ…‹åˆ—
 	private	String toolname[]={"img/tool1.gif","img/tool2.gif","img/tool3.gif","img/tool4.gif","img/tool5.gif","img/tool8.gif","img/tool9.gif","img/tool7.gif","img/tool6.gif","img/tool10.gif","img/tool11.gif"};
 	private	Icon tool[]=new ImageIcon[11];
 	private	int i,j,show_x,show_y,drawMethod=7,draw_panel_width=700,draw_panel_height=500;
@@ -39,7 +39,7 @@ public class Painter extends JFrame implements ActionListener {
 	private String isFilled;
 	
 	public Painter(){
-		//³]©wJMenuBar¡A¨Ã²£¥ÍJMenuItem¡B¨Ã³]¸m§Ö±¶Áä
+		//è¨­å®šJMenuBarï¼Œä¸¦ç”¢ç”ŸJMenuItemã€ä¸¦è¨­ç½®å¿«æ·éµ
 		JMenuBar bar = new JMenuBar();
 		jMenu=new JMenu[menuBar.length];
 		for(i=0;i<menuBar.length;i++){
@@ -76,10 +76,10 @@ public class Painter extends JFrame implements ActionListener {
 		for(i=0;i<5;i++)
 			jPanel[i]=new JPanel();
 			
-		jLabel[0]=new JLabel(" ª¬ºA¦C");
+		jLabel[0]=new JLabel(" ç‹€æ…‹åˆ—");
 		
 		buttonGroup = new ButtonGroup();
-		JToolBar jToolBar=new JToolBar("¤u¨ã½c",JToolBar.VERTICAL);
+		JToolBar jToolBar=new JToolBar("å·¥å…·ç®±",JToolBar.VERTICAL);
 		jToggleButton=new JToggleButton[ButtonName.length];
 		for(i=0;i<ButtonName.length;i++){
 			tool[i] = new ImageIcon(toolname[i]);
@@ -103,7 +103,7 @@ public class Painter extends JFrame implements ActionListener {
 		jToolBar.setLayout( new GridLayout( 6, 2, 2, 2 ) );
 		jPanel[2].add(jToolBar);
 		
-		jToolBar.setFloatable(false);//µLªk²¾°Ê
+		jToolBar.setFloatable(false);//ç„¡æ³•ç§»å‹•
 		
 		colorPanel=new ColorPanel();
 		jPanel[3].setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -133,12 +133,12 @@ public class Painter extends JFrame implements ActionListener {
 		c.add(jLabel[0],BorderLayout.SOUTH);
 		
 		setSize(draw_panel_width,draw_panel_height);
-		setTitle("¤pµe®a");
+		setTitle("å°ç•«å®¶");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		show();
 	}
 	public void save(){
-		FileDialog fileDialog = new FileDialog( new Frame() , "½Ğ«ü©w¤@­ÓÀÉ¦W", FileDialog.SAVE );
+		FileDialog fileDialog = new FileDialog( new Frame() , "è«‹æŒ‡å®šä¸€å€‹æª”å", FileDialog.SAVE );
 		fileDialog.show();
 		if(fileDialog.getFile()==null) return;
 		drawPanel.filename = fileDialog.getDirectory()+fileDialog.getFile();
@@ -178,7 +178,7 @@ public class Painter extends JFrame implements ActionListener {
 		else if(e.getSource()==jMenuItem[1][4]){
 			drawPanel.paste();
 		}
-		else if(e.getSource()==jMenuItem[0][0]){//¶}·sÀÉ®×
+		else if(e.getSource()==jMenuItem[0][0]){//é–‹æ–°æª”æ¡ˆ
 			underDrawPanel.remove(drawPanel);
 			drawPanel=null;
 			drawPanel=new DrawPanel();
@@ -189,8 +189,8 @@ public class Painter extends JFrame implements ActionListener {
 			underDrawPanel.ctrl_area3.setLocation(draw_panel_width/2+3,draw_panel_height+3);
 			repaint();
 		}
-		else if(e.getSource()==jMenuItem[0][1]){//¶}±ÒÂÂÀÉ
-			FileDialog fileDialog = new FileDialog( new Frame() , "¿ï¾Ü¤@­Ó¹ÏÀÉ", FileDialog.LOAD );
+		else if(e.getSource()==jMenuItem[0][1]){//é–‹å•ŸèˆŠæª”
+			FileDialog fileDialog = new FileDialog( new Frame() , "é¸æ“‡ä¸€å€‹åœ–æª”", FileDialog.LOAD );
 			fileDialog.show();
 			if(fileDialog.getFile()==null) return;
 			
@@ -202,7 +202,7 @@ public class Painter extends JFrame implements ActionListener {
 			
 			drawPanel.openfile(fileDialog.getDirectory()+fileDialog.getFile());
 		}
-		else if(e.getSource()==jMenuItem[0][2]){//Àx¦sÀÉ®×
+		else if(e.getSource()==jMenuItem[0][2]){//å„²å­˜æª”æ¡ˆ
 			if(drawPanel.filename==null){
 				save();
 			}
@@ -212,25 +212,25 @@ public class Painter extends JFrame implements ActionListener {
 					ImageIO.write(drawPanel.bufImg, drawPanel.filename.substring(dotpos + 1), new File(drawPanel.filename));
 				}
 				catch(IOException even) {
-					JOptionPane.showMessageDialog(null, even.toString(),"µLªkÀx¦s¹ÏÀÉ", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, even.toString(),"ç„¡æ³•å„²å­˜åœ–æª”", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
-		else if(e.getSource()==jMenuItem[0][3]){//¥t¦s·sÀÉ
+		else if(e.getSource()==jMenuItem[0][3]){//å¦å­˜æ–°æª”
 			save();
 			try{
 				int dotpos = drawPanel.filename.lastIndexOf('.');
 				ImageIO.write(drawPanel.bufImg, drawPanel.filename.substring(dotpos + 1), new File(drawPanel.filename));
 			}
 			catch(IOException even) {
-				JOptionPane.showMessageDialog(null, even.toString(),"µLªkÀx¦s¹ÏÀÉ", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, even.toString(),"ç„¡æ³•å„²å­˜åœ–æª”", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		else if(e.getSource()==jMenuItem[0][4]){//Â÷¶}
+		else if(e.getSource()==jMenuItem[0][4]){//é›¢é–‹
 			System.exit(0);
 		}
-		else if(e.getSource()==jMenuItem[3][0]){//Ãö©ó
-			JOptionPane.showMessageDialog(null, "µ{¦¡¦WºÙ¡G¤pµe®a (2004/6/2)\n§@ªÌ¡G¦¶°¶ºú\n¨t¯Å¡G²H¦¿¤j¾Ç¸ê°T¤uµ{1-C\n«H½c¡Gweiluen@gmail.com\n\nª©¥»¯SÂI¡G¶ä\n", "Ãö©ó ¤pµe®a", 1, new ImageIcon("img/paint.gif"));
+		else if(e.getSource()==jMenuItem[3][0]){//é—œæ–¼
+			JOptionPane.showMessageDialog(null, "ç¨‹å¼åç¨±ï¼šå°ç•«å®¶ \nä½œè€…ï¼šè³´æŸä»»\n\nç‰ˆæœ¬ç‰¹é»ï¼šå—¡\n", "é—œæ–¼ å°ç•«å®¶", 1, new ImageIcon("img/paint.gif"));
 		}
 		for(i=0;i<2;i++){
 			if(jCheckBoxMenuItem[i].isSelected())
@@ -337,14 +337,14 @@ public class Painter extends JFrame implements ActionListener {
 		JRadioButton style[] = new JRadioButton[ 5 ];
 		ButtonGroup styleGroup = new ButtonGroup() ,pieGroup = new ButtonGroup();
         
-		public SetPanel(){//²£¥Íª©­±//
+		public SetPanel(){//ç”¢ç”Ÿç‰ˆé¢//
 			this.setLayout(null);
 			this.add(jPanel_set1);
 
 			jlbImg.setIcon(new ImageIcon(bufImg));
 			jPanel_set1.setLayout(new FlowLayout());
 			jPanel_set1.setBounds(new Rectangle(0, 0, 100, 160));
-			jPanel_set1.setBorder( new TitledBorder(null, "Ãä®Ø",TitledBorder.LEFT, TitledBorder.TOP) );
+			jPanel_set1.setBorder( new TitledBorder(null, "é‚Šæ¡†",TitledBorder.LEFT, TitledBorder.TOP) );
 			lineWidthSelect.setValue(new Integer(5));
 
 			for(i=0;i<=1;i++){
@@ -354,16 +354,16 @@ public class Painter extends JFrame implements ActionListener {
 			}
 			style[0].setSelected( true );
       
-			temp1.add(new JLabel("¤j¤p:"));
+			temp1.add(new JLabel("å¤§å°:"));
 			temp1.add(lineWidthSelect);
 			
-			temp2.add(new JLabel("µê½u:"));
+			temp2.add(new JLabel("è™›ç·š:"));
 			temp2.add(jCheckBox);
 			
-			temp3.add(new JLabel("¶ê¨¤:"));
+			temp3.add(new JLabel("åœ“è§’:"));
 			temp3.add(style[0]);
 			
-			temp4.add(new JLabel("¦y¨¤:"));
+			temp4.add(new JLabel("å°–è§’:"));
 			temp4.add(style[1]);
 			
 			temp0.add(temp1);
@@ -376,7 +376,7 @@ public class Painter extends JFrame implements ActionListener {
 			jCheckBox.addItemListener( this );
 			
 			jPanel_set2.setBounds(new Rectangle(0, 170, 100, 130));
-			jPanel_set2.setBorder( new TitledBorder(null, "®°«¬³]©w",TitledBorder.LEFT, TitledBorder.TOP) );
+			jPanel_set2.setBorder( new TitledBorder(null, "æ‰‡å‹è¨­å®š",TitledBorder.LEFT, TitledBorder.TOP) );
 			
 			for(i=2;i<=4;i++){
 				style[i] = new JRadioButton();
@@ -385,15 +385,15 @@ public class Painter extends JFrame implements ActionListener {
 			}
 			style[4].setSelected( true );
 			
-			pie[0] = new JLabel("©¶ª¬:");
+			pie[0] = new JLabel("å¼¦ç‹€:");
 			temp5.add(pie[0]);
 			temp5.add(style[2]);
 			
-			pie[1] = new JLabel("¶}©ñ:");
+			pie[1] = new JLabel("é–‹æ”¾:");
 			temp6.add(pie[1]);
 			temp6.add(style[3]);
 			
-			pie[2] = new JLabel("¬£ª¬:");
+			pie[2] = new JLabel("æ´¾ç‹€:");
 			temp7.add(pie[2]);
 			temp7.add(style[4]);
 			
@@ -481,7 +481,7 @@ public class Painter extends JFrame implements ActionListener {
 		}
 	}
 	
-	public class Gradient extends JPanel{//º¥¼h¹wÄı¥Î
+	public class Gradient extends JPanel{//æ¼¸å±¤é è¦½ç”¨
 		public Color G_color_left = new Color(255,255,255);
 		public Color G_color_right = new Color(0,0,0);
 		
@@ -501,7 +501,7 @@ public class Painter extends JFrame implements ActionListener {
 		}
 	}
 	
-	public class ColorPanel extends JPanel implements MouseListener,ActionListener{//½Õ¦â½Lclass
+	public class ColorPanel extends JPanel implements MouseListener,ActionListener{//èª¿è‰²ç›¤class
 		private	JPanel jPanel_color0[]=new JPanel[5];
 		private	JPanel jPanel_color1[]=new JPanel[32];
 		private	JPanel jPanel_color2[]=new JPanel[32];
@@ -519,7 +519,7 @@ public class Painter extends JFrame implements ActionListener {
 			{0,255,128,192,  0,  0,  0,  0,  0,  0,128,255,128,255,128,255, 64,128, 64,128,255,255,128,255,255,128,  0, 64,255,255,255,255}
 		};
 		
-		public ColorPanel(){//²£¥Íª©­±//
+		public ColorPanel(){//ç”¢ç”Ÿç‰ˆé¢//
 			addMouseListener( this );
 			jlbImg.setIcon(new ImageIcon(bufImg));
 			jlbImg2.setIcon(new ImageIcon(bufImg2));
@@ -585,7 +585,7 @@ public class Painter extends JFrame implements ActionListener {
 			jPanel_color0[3].setBounds(new Rectangle(2, 2, 12, 12));
 			jPanel_color0[4].setBounds(new Rectangle(2, 2, 12, 12));
 			
-			jDialog = new JDialog(Painter.this, "½Ğ¿ï¾Ü¨âºØÃC¦â°µº¥¼h", true);
+			jDialog = new JDialog(Painter.this, "è«‹é¸æ“‡å…©ç¨®é¡è‰²åšæ¼¸å±¤", true);
         	jDialog.getContentPane().setLayout(new FlowLayout());
         	jDialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE );
         	jDialog.setSize(250, 110);
@@ -593,8 +593,8 @@ public class Painter extends JFrame implements ActionListener {
         	JPanel up = new JPanel(new FlowLayout());
         	JPanel down = new JPanel(new FlowLayout());
         	
-			ok = new JButton("½T©w");
-			cancel = new JButton("¨ú®ø");
+			ok = new JButton("ç¢ºå®š");
+			cancel = new JButton("å–æ¶ˆ");
 			left = new JButton(" ");
 			right = new JButton(" ");
 			center.setBorder(BorderFactory.createEtchedBorder(BevelBorder.RAISED));
@@ -614,11 +614,11 @@ public class Painter extends JFrame implements ActionListener {
 		}
 		public void actionPerformed( ActionEvent e ){
 			if(e.getSource() == left){
-				center.G_color_left = JColorChooser.showDialog( Painter.this, "½Ğ¿ï¾ÜÃä½uÃC¦â", center.G_color_left );
+				center.G_color_left = JColorChooser.showDialog( Painter.this, "è«‹é¸æ“‡é‚Šç·šé¡è‰²", center.G_color_left );
 				center.repaint();
 			}
 			else if(e.getSource() == right){
-				center.G_color_right = JColorChooser.showDialog( Painter.this, "½Ğ¿ï¾ÜÃä½uÃC¦â", center.G_color_right );
+				center.G_color_right = JColorChooser.showDialog( Painter.this, "è«‹é¸æ“‡é‚Šç·šé¡è‰²", center.G_color_right );
 				center.repaint();
 			}
 			else{
@@ -634,14 +634,14 @@ public class Painter extends JFrame implements ActionListener {
 			Graphics2D g2d;
 			if(e.getX()>=5 && e.getX()<=20 && e.getY()>=5 && e.getY()<=20){
 				g2d = bufImg.createGraphics();
-				color_border = JColorChooser.showDialog( Painter.this, "½Ğ¿ï¾ÜÃä½uÃC¦â", (Color)color_border );
+				color_border = JColorChooser.showDialog( Painter.this, "è«‹é¸æ“‡é‚Šç·šé¡è‰²", (Color)color_border );
 				g2d.setPaint(color_border);
 				g2d.fill( new Rectangle2D.Double( 0, 0, 12, 12 ) );
 				repaint();
 			}
 			else if(e.getX()>=13 && e.getX()<=28 && e.getY()>=13 && e.getY()<=28){
 				g2d = bufImg2.createGraphics();
-				color_inside = JColorChooser.showDialog( Painter.this, "½Ğ¿ï¾Ü¶ñ¥RÃC¦â", (Color)color_inside );
+				color_inside = JColorChooser.showDialog( Painter.this, "è«‹é¸æ“‡å¡«å……é¡è‰²", (Color)color_inside );
 				g2d.setPaint(color_inside);
 				g2d.fill( new Rectangle2D.Double( 0, 0, 12, 12 ) );
 				repaint();
@@ -650,12 +650,12 @@ public class Painter extends JFrame implements ActionListener {
 			if(!(e.getX()>=32 && e.getX()<=288)) return;
 			int choose=(e.getX()-32)/16*2+e.getY()/16;
 			
-			if(e.getButton()==1)//§PÂ_¶ñ¥RÃä®Ø©Î¶ñº¡¤º³¡
+			if(e.getButton()==1)//åˆ¤æ–·å¡«å……é‚Šæ¡†æˆ–å¡«æ»¿å…§éƒ¨
 				g2d = bufImg.createGraphics();
 			else
 				g2d = bufImg2.createGraphics();
 			
-			if(choose==28){//¶ñ¥RµLÃC¦â
+			if(choose==28){//å¡«å……ç„¡é¡è‰²
 				g2d.setPaint( Color.white );
 				g2d.fill( new Rectangle2D.Double( 0, 0, 12, 12 ) );
 				g2d.setPaint( Color.red ); 
@@ -668,7 +668,7 @@ public class Painter extends JFrame implements ActionListener {
 				else
 					color_inside=null;
 			}
-			else if(choose==29){//¶ñ¥Rº¥¼h
+			else if(choose==29){//å¡«å……æ¼¸å±¤
 				jDialog.show();
 				
 				g2d.setPaint( new GradientPaint( 0, 0, center.G_color_left, 12, 12, center.G_color_right, true ) );
@@ -680,57 +680,57 @@ public class Painter extends JFrame implements ActionListener {
 				else
 					color_inside=new GradientPaint( 0, 0, center.G_color_left, 12, 12, center.G_color_right, true );
 			}
-			else if(choose==30){//¶ñ¥R¹Ï®×
-				FileDialog fileDialog = new FileDialog( new Frame() , "¿ï¾Ü¤@­Ó¹ÏÀÉ", FileDialog.LOAD );//§Q¥ÎFileDialog§ì¨úÀÉ¦W
-				fileDialog.show();//¨q¥Xµøµ¡
-				if(fileDialog.getFile()==null) return;//«ö¨ú®øªº³B²z
+			else if(choose==30){//å¡«å……åœ–æ¡ˆ
+				FileDialog fileDialog = new FileDialog( new Frame() , "é¸æ“‡ä¸€å€‹åœ–æª”", FileDialog.LOAD );//åˆ©ç”¨FileDialogæŠ“å–æª”å
+				fileDialog.show();//ç§€å‡ºè¦–çª—
+				if(fileDialog.getFile()==null) return;//æŒ‰å–æ¶ˆçš„è™•ç†
 				
-				g2d.drawImage(special_color[2].getImage(), 0, 0,this);//§â½Õ¦â½L¥ª¤è´«¦¨¡y¹Ï¤ù¡z
+				g2d.drawImage(special_color[2].getImage(), 0, 0,this);//æŠŠèª¿è‰²ç›¤å·¦æ–¹æ›æˆã€åœ–ç‰‡ã€
 				
-				icon = new ImageIcon(fileDialog.getDirectory()+fileDialog.getFile());//§Q¥ÎFileDialog¶Ç¶i¨ÓªºÀÉ¦WÅª¨ú¹Ï¤ù
-				BufferedImage bufferedImage = new BufferedImage(icon.getIconWidth(),icon.getIconHeight(),BufferedImage.TYPE_3BYTE_BGR);//³Ğ¤@±i·sªºBufferedImage¡A¬°¤F­nÅª¨úÅª¶i¨Óªº¹Ï¤ùªø¼e¡A¥H§K¦³ªÅ¥Õ
-				bufferedImage.createGraphics().drawImage(icon.getImage(),0,0,this);//§âiconµe¨ìBufferedImage¤W
-				repaint();//­«Ã¸¿Ã¹õ
+				icon = new ImageIcon(fileDialog.getDirectory()+fileDialog.getFile());//åˆ©ç”¨FileDialogå‚³é€²ä¾†çš„æª”åè®€å–åœ–ç‰‡
+				BufferedImage bufferedImage = new BufferedImage(icon.getIconWidth(),icon.getIconHeight(),BufferedImage.TYPE_3BYTE_BGR);//å‰µä¸€å¼µæ–°çš„BufferedImageï¼Œç‚ºäº†è¦è®€å–è®€é€²ä¾†çš„åœ–ç‰‡é•·å¯¬ï¼Œä»¥å…æœ‰ç©ºç™½
+				bufferedImage.createGraphics().drawImage(icon.getImage(),0,0,this);//æŠŠiconç•«åˆ°BufferedImageä¸Š
+				repaint();//é‡ç¹ªè¢å¹•
 				
-				if(e.getButton()==1)//§PÂ_Ãä½uÃC¦â©Î¤º³¡¶ñº¡¦â
-					color_border=new TexturePaint(bufferedImage, new Rectangle( icon.getIconWidth(), icon.getIconHeight() ) );//§â³o±iBufferedImage³]¦¨TexturePaint¨Ó¶ñº¡
+				if(e.getButton()==1)//åˆ¤æ–·é‚Šç·šé¡è‰²æˆ–å…§éƒ¨å¡«æ»¿è‰²
+					color_border=new TexturePaint(bufferedImage, new Rectangle( icon.getIconWidth(), icon.getIconHeight() ) );//æŠŠé€™å¼µBufferedImageè¨­æˆTexturePaintä¾†å¡«æ»¿
 				else
 					color_inside=new TexturePaint(bufferedImage, new Rectangle( icon.getIconWidth(), icon.getIconHeight() ) );
 			}
-			else if(choose==31){//¶ñ¥R¤å¦r
-				String text=JOptionPane.showInputDialog("½Ğ¿é¤J¤å¦r","¤å¦r");//¿é¤J¤å¦r
-				if(text==null) return;//«ö¨ú®ø®Éªº³B²z
+			else if(choose==31){//å¡«å……æ–‡å­—
+				String text=JOptionPane.showInputDialog("è«‹è¼¸å…¥æ–‡å­—","æ–‡å­—");//è¼¸å…¥æ–‡å­—
+				if(text==null) return;//æŒ‰å–æ¶ˆæ™‚çš„è™•ç†
 				
-				Color FontColor=new Color(0,0,0);//µ¹³o­Ó¦rÃC¦â
-				FontColor = JColorChooser.showDialog( Painter.this, "½Ğ¿ï¾Ü¤@­ÓÃC¦â·í¤å¦rÃC¦â", FontColor );//Åı¨Ï¥ÎªÌ¿ï¾ÜÃC¦â
+				Color FontColor=new Color(0,0,0);//çµ¦é€™å€‹å­—é¡è‰²
+				FontColor = JColorChooser.showDialog( Painter.this, "è«‹é¸æ“‡ä¸€å€‹é¡è‰²ç•¶æ–‡å­—é¡è‰²", FontColor );//è®“ä½¿ç”¨è€…é¸æ“‡é¡è‰²
 				
-				g2d.drawImage(special_color[3].getImage(), 0, 0,this);//§â½Õ¦â½L¥ª¤è´«¦¨¡y¦r¡z
+				g2d.drawImage(special_color[3].getImage(), 0, 0,this);//æŠŠèª¿è‰²ç›¤å·¦æ–¹æ›æˆã€å­—ã€
 				
-				BufferedImage bufferedImage = new BufferedImage(draw_panel_width,draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);//³Ğ¤@±i·sªºBufferedImage
-				Graphics2D g2d_bufferedImage = bufferedImage.createGraphics();//§âGraphics®³¥X¨Óµe
+				BufferedImage bufferedImage = new BufferedImage(draw_panel_width,draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);//å‰µä¸€å¼µæ–°çš„BufferedImage
+				Graphics2D g2d_bufferedImage = bufferedImage.createGraphics();//æŠŠGraphicsæ‹¿å‡ºä¾†ç•«
 				
-				FontRenderContext frc = g2d_bufferedImage.getFontRenderContext();//ÅªGraphics¤¤ªºFont
-				Font f = new Font("·s²Ó©úÅé",Font.BOLD,10);//·sFont
-				TextLayout tl = new TextLayout(text, f, frc);//³Ğ·sªºTextLayout¡A¨Ã§Q¥Îf(Font)¸òµe¦Ü©ófrc(FontRenderContext)
+				FontRenderContext frc = g2d_bufferedImage.getFontRenderContext();//è®€Graphicsä¸­çš„Font
+				Font f = new Font("æ–°ç´°æ˜é«”",Font.BOLD,10);//æ–°Font
+				TextLayout tl = new TextLayout(text, f, frc);//å‰µæ–°çš„TextLayoutï¼Œä¸¦åˆ©ç”¨f(Font)è·Ÿç•«è‡³æ–¼frc(FontRenderContext)
 				
-				int sw = (int) (tl.getBounds().getWidth()+tl.getCharacterCount());//­pºâTextLayoutªºªø
-				int sh = (int) (tl.getBounds().getHeight()+3);//­pºâTextLayoutªº°ª
+				int sw = (int) (tl.getBounds().getWidth()+tl.getCharacterCount());//è¨ˆç®—TextLayoutçš„é•·
+				int sh = (int) (tl.getBounds().getHeight()+3);//è¨ˆç®—TextLayoutçš„é«˜
 				
-				bufferedImage = new BufferedImage(sw,sh,BufferedImage.TYPE_3BYTE_BGR);//¦A³Ğ¤@±i·sªºBufferedImage¡A³o¸Ì§Q¥Î¬Û¦P«ü¼Ğ«ü¦V¤£¦P°O¾ĞÅé
-				g2d_bufferedImage = bufferedImage.createGraphics();//®³¥XGraphics¨Óµe¡A«e¤@±iBufferedImage¥u¬O¬°¤F­pºâ¤å¦rªø«×»P°ª«×¡A³o¼Ë¤~¯à§¹¾ã¶ñº¡
+				bufferedImage = new BufferedImage(sw,sh,BufferedImage.TYPE_3BYTE_BGR);//å†å‰µä¸€å¼µæ–°çš„BufferedImageï¼Œé€™è£¡åˆ©ç”¨ç›¸åŒæŒ‡æ¨™æŒ‡å‘ä¸åŒè¨˜æ†¶é«”
+				g2d_bufferedImage = bufferedImage.createGraphics();//æ‹¿å‡ºGraphicsä¾†ç•«ï¼Œå‰ä¸€å¼µBufferedImageåªæ˜¯ç‚ºäº†è¨ˆç®—æ–‡å­—é•·åº¦èˆ‡é«˜åº¦ï¼Œé€™æ¨£æ‰èƒ½å®Œæ•´å¡«æ»¿
 				
-				g2d_bufferedImage.setPaint(Color.WHITE);//³]©wÃC¦â¬°¥Õ¦â
-				g2d_bufferedImage.fill(new Rectangle(0,0,sw,sh));//µe¤@­Ó¶ñº¡¥Õ¦â¯x«¬
-				g2d_bufferedImage.setPaint(FontColor);//³]©wÃC¦â¬°¤§«e¿ï¾Ü¤å¦rÃC¦â
-				g2d_bufferedImage.drawString(text,0,10);//µe¤@­ÓString©óBufferedImage¤W
-				repaint();//§ó·sµe­±
+				g2d_bufferedImage.setPaint(Color.WHITE);//è¨­å®šé¡è‰²ç‚ºç™½è‰²
+				g2d_bufferedImage.fill(new Rectangle(0,0,sw,sh));//ç•«ä¸€å€‹å¡«æ»¿ç™½è‰²çŸ©å‹
+				g2d_bufferedImage.setPaint(FontColor);//è¨­å®šé¡è‰²ç‚ºä¹‹å‰é¸æ“‡æ–‡å­—é¡è‰²
+				g2d_bufferedImage.drawString(text,0,10);//ç•«ä¸€å€‹Stringæ–¼BufferedImageä¸Š
+				repaint();//æ›´æ–°ç•«é¢
 				
-				if(e.getButton()==1)//§PÂ_Ãä½uÃC¦â©Î¤º³¡¶ñº¡¦â
-					color_border=new TexturePaint(bufferedImage, new Rectangle(sw,sh) );//§â³o±iBufferedImage³]¦¨TexturePaint¨Ó¶ñº¡
+				if(e.getButton()==1)//åˆ¤æ–·é‚Šç·šé¡è‰²æˆ–å…§éƒ¨å¡«æ»¿è‰²
+					color_border=new TexturePaint(bufferedImage, new Rectangle(sw,sh) );//æŠŠé€™å¼µBufferedImageè¨­æˆTexturePaintä¾†å¡«æ»¿
 				else
 					color_inside=new TexturePaint(bufferedImage, new Rectangle(sw,sh) );
 			}
-			else{//¶ñ¥R¤@¯ë¦â
+			else{//å¡«å……ä¸€èˆ¬è‰²
 				g2d.setPaint(new Color(rgb[0][choose],rgb[1][choose],rgb[2][choose]));
 				g2d.fill( new Rectangle2D.Double( 0, 0, 12, 12 ) );
 				repaint();
@@ -747,22 +747,22 @@ public class Painter extends JFrame implements ActionListener {
 		public void mouseExited( MouseEvent e ){}
 	}
 	
-	public class DrawPanel extends JPanel implements MouseListener, MouseMotionListener, ItemListener, ActionListener, ChangeListener{//¤¤¥¡µe¥¬
-		public BufferedImage bufImg;//°O¿ı³Ì·sµe­±¡A¨Ã¦b¦¹¤W§@µe
-		private BufferedImage bufImg_data[];//°O¿ı©Ò¦³µe¥X¹Ï­±¡A¯Á¤Ş­È¶V¤j¶V·s¡A³Ì¤j¬°³Ì·s
+	public class DrawPanel extends JPanel implements MouseListener, MouseMotionListener, ItemListener, ActionListener, ChangeListener{//ä¸­å¤®ç•«å¸ƒ
+		public BufferedImage bufImg;//è¨˜éŒ„æœ€æ–°ç•«é¢ï¼Œä¸¦åœ¨æ­¤ä¸Šä½œç•«
+		private BufferedImage bufImg_data[];//è¨˜éŒ„æ‰€æœ‰ç•«å‡ºåœ–é¢ï¼Œç´¢å¼•å€¼è¶Šå¤§è¶Šæ–°ï¼Œæœ€å¤§ç‚ºæœ€æ–°
 		private BufferedImage bufImg_cut;
 		private ImageIcon img;
 		private JLabel jlbImg;
 		private int x1=-1,y1=-1,x2,y2,count,redo_lim,press,temp_x1,temp_y1,temp_x2,temp_y2,temp_x3,temp_y3,step,step_chk,step_arc,step_chk_arc,chk,first,click,cut;
-		private Arc2D.Double arc2D = new Arc2D.Double();//®°«¬
-		private Line2D.Double line2D = new Line2D.Double();//ª½½u
-		private Ellipse2D.Double ellipse2D = new Ellipse2D.Double();//¾ò¶ê
-		private Rectangle2D.Double rectangle2D = new Rectangle2D.Double();//¯x«¬
-		private CubicCurve2D.Double cubicCurve2D = new CubicCurve2D.Double();//¨©¤ó¦±½u
-		private RoundRectangle2D.Double roundRectangle2D = new RoundRectangle2D.Double();//¶ê¨¤¯x«¬
-		private Polygon polygon;//¦hÃä«¬
+		private Arc2D.Double arc2D = new Arc2D.Double();//æ‰‡å‹
+		private Line2D.Double line2D = new Line2D.Double();//ç›´ç·š
+		private Ellipse2D.Double ellipse2D = new Ellipse2D.Double();//æ©¢åœ“
+		private Rectangle2D.Double rectangle2D = new Rectangle2D.Double();//çŸ©å‹
+		private CubicCurve2D.Double cubicCurve2D = new CubicCurve2D.Double();//è²æ°æ›²ç·š
+		private RoundRectangle2D.Double roundRectangle2D = new RoundRectangle2D.Double();//åœ“è§’çŸ©å‹
+		private Polygon polygon;//å¤šé‚Šå‹
 		private float data[]={5};
-		private Rectangle2D.Double rectangle2D_select = new Rectangle2D.Double();//¯x«¬
+		private Rectangle2D.Double rectangle2D_select = new Rectangle2D.Double();//çŸ©å‹
 		private Ellipse2D.Double ellipse2D_pan = new Ellipse2D.Double();
 		private BasicStroke basicStroke_pen = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER);
 		private BasicStroke basicStroke_select = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_MITER,10, data, 0);
@@ -782,32 +782,32 @@ public class Painter extends JFrame implements ActionListener {
 		private int valItalic = Font.ITALIC;
 		private int select_x,select_y,select_w,select_h;
 		
-		public void resize(){//§ïÅÜ¤j¤p
+		public void resize(){//æ”¹è®Šå¤§å°
 			bufImg = new BufferedImage(draw_panel_width, draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);
-			jlbImg = new JLabel(new ImageIcon(bufImg));//¦bJLabel¤W©ñ¸mbufImg¡A¥Î¨ÓÃ¸¹Ï
+			jlbImg = new JLabel(new ImageIcon(bufImg));//åœ¨JLabelä¸Šæ”¾ç½®bufImgï¼Œç”¨ä¾†ç¹ªåœ–
 			this.removeAll();
 			this.add(jlbImg);
 			jlbImg.setBounds(new Rectangle(0, 0, draw_panel_width, draw_panel_height));
 			
-    		//µe¥X­ì¥»¹Ï§Î//
+    		//ç•«å‡ºåŸæœ¬åœ–å½¢//
     		Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
     		g2d_bufImg.setPaint(Color.white);
     		g2d_bufImg.fill(new Rectangle2D.Double(0,0,draw_panel_width,draw_panel_height));
     		g2d_bufImg.drawImage(bufImg_data[count],0,0,this);
 
-			//°O¿ı¥i­«°µ³Ì¤j¦¸¼Æ¡A¨ÃÅı­«°µ¤£¥i«ö//
+			//è¨˜éŒ„å¯é‡åšæœ€å¤§æ¬¡æ•¸ï¼Œä¸¦è®“é‡åšä¸å¯æŒ‰//
 			redo_lim=count++;
 			jMenuItem[1][1].setEnabled(false);
 			
-   			//·s¼W¤@±iBufferedImage«¬ºA¦ÜbufImg_data[count]¡A¨Ã±NbufImgÃ¸»s¦ÜbufImg_data[count]//
+   			//æ–°å¢ä¸€å¼µBufferedImageå‹æ…‹è‡³bufImg_data[count]ï¼Œä¸¦å°‡bufImgç¹ªè£½è‡³bufImg_data[count]//
    			bufImg_data[count] = new BufferedImage(draw_panel_width, draw_panel_height, BufferedImage.TYPE_3BYTE_BGR);
    			Graphics2D g2d_bufImg_data = (Graphics2D) bufImg_data[count].getGraphics();
    			g2d_bufImg_data.drawImage(bufImg,0,0,this);
    			
-			//§PÂ_®y¼Ğ¬°·s°_ÂI//
+			//åˆ¤æ–·åº§æ¨™ç‚ºæ–°èµ·é»//
 			press=0;
 			
-			//Åı´_­ìMenuItem¥i¥HÂI¿ï//
+			//è®“å¾©åŸMenuItemå¯ä»¥é»é¸//
    			if(count>0)
    				jMenuItem[1][0].setEnabled(true);
 		}
@@ -815,7 +815,7 @@ public class Painter extends JFrame implements ActionListener {
 		public DrawPanel() {
 			bufImg_data = new BufferedImage[1000];
 			bufImg = new BufferedImage(draw_panel_width, draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);
-			jlbImg = new JLabel(new ImageIcon(bufImg));//¦bJLabel¤W©ñ¸mbufImg¡A¥Î¨ÓÃ¸¹Ï
+			jlbImg = new JLabel(new ImageIcon(bufImg));//åœ¨JLabelä¸Šæ”¾ç½®bufImgï¼Œç”¨ä¾†ç¹ªåœ–
 
 			this.setLayout(null);
 			this.add(jlbImg);
@@ -827,7 +827,7 @@ public class Painter extends JFrame implements ActionListener {
     		jMenuItem[1][3].setEnabled(false);
     		jMenuItem[1][4].setEnabled(false);
     		
-    		//µe¥XªÅ¥Õ//
+    		//ç•«å‡ºç©ºç™½//
     		Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
     		g2d_bufImg.setPaint(Color.WHITE);
 			g2d_bufImg.fill(new Rectangle2D.Double(0,0,draw_panel_width,draw_panel_height));
@@ -837,12 +837,12 @@ public class Painter extends JFrame implements ActionListener {
     		g2d_bufImg_data.drawImage(bufImg,0,0,this);
 			
 			//Font//
-			jDialog = new JDialog(Painter.this, "½Ğ¿ï¾Ü¤å¦r¡B¦r«¬¡B¤j¤p»PÄİ©Ê", true);
+			jDialog = new JDialog(Painter.this, "è«‹é¸æ“‡æ–‡å­—ã€å­—å‹ã€å¤§å°èˆ‡å±¬æ€§", true);
 			fontsize.setValue(new Integer(100));
-			bold = new JCheckBox( "²ÊÅé" ,true);
-			italic = new JCheckBox( "±×Åé" ,true);
-			ok = new JButton("½T©w");
-			cancel = new JButton("¨ú®ø");
+			bold = new JCheckBox( "ç²—é«”" ,true);
+			italic = new JCheckBox( "æ–œé«”" ,true);
+			ok = new JButton("ç¢ºå®š");
+			cancel = new JButton("å–æ¶ˆ");
 			JPanel temp_0 = new JPanel(new GridLayout(5,1));
 			JPanel temp_1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 			JPanel temp_2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -854,13 +854,13 @@ public class Painter extends JFrame implements ActionListener {
         	jDialog_c.setLayout(new FlowLayout());
         	jDialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE );
         	jDialog.setSize(250, 200);
-        	temp_5.add(new JLabel("¤å¦r:"));
+        	temp_5.add(new JLabel("æ–‡å­—:"));
 			temp_5.add(textField_word);
-			temp_1.add(new JLabel("¦rÅé:"));
+			temp_1.add(new JLabel("å­—é«”:"));
 			temp_1.add(textField_font);
-			temp_2.add(new JLabel("¤j¤p:"));
+			temp_2.add(new JLabel("å¤§å°:"));
 			temp_2.add(fontsize);
-			temp_3.add(new JLabel("Äİ©Ê:"));
+			temp_3.add(new JLabel("å±¬æ€§:"));
 			temp_3.add(bold);
 			temp_3.add(italic);
 			temp_4.add(ok);
@@ -911,7 +911,7 @@ public class Painter extends JFrame implements ActionListener {
 			return new Dimension( draw_panel_width, draw_panel_height );
 		}
 		
-		public void openfile(String filename){//¶}±ÒÂÂÀÉ
+		public void openfile(String filename){//é–‹å•ŸèˆŠæª”
 			Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
 			ImageIcon icon = new ImageIcon(filename);
 			g2d_bufImg.drawImage(icon.getImage(),0,0,this);
@@ -924,7 +924,7 @@ public class Painter extends JFrame implements ActionListener {
 			repaint();
 		}
 		
-		public void undo(){//´_­ì
+		public void undo(){//å¾©åŸ
    			count--;
 			
    			draw_panel_width=bufImg_data[count].getWidth();
@@ -932,7 +932,7 @@ public class Painter extends JFrame implements ActionListener {
    			drawPanel.setSize(draw_panel_width,draw_panel_height);
 
 			bufImg = new BufferedImage(draw_panel_width, draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);
-			jlbImg = new JLabel(new ImageIcon(bufImg));//¦bJLabel¤W©ñ¸mbufImg¡A¥Î¨ÓÃ¸¹Ï
+			jlbImg = new JLabel(new ImageIcon(bufImg));//åœ¨JLabelä¸Šæ”¾ç½®bufImgï¼Œç”¨ä¾†ç¹ªåœ–
 			this.removeAll();
 			this.add(jlbImg);
 			jlbImg.setBounds(new Rectangle(0, 0, draw_panel_width, draw_panel_height));
@@ -956,7 +956,7 @@ public class Painter extends JFrame implements ActionListener {
    			repaint();
    		}
 
-		public void redo(){//­«°µ
+		public void redo(){//é‡åš
 			count++;
 			
    			draw_panel_width=bufImg_data[count].getWidth();
@@ -964,7 +964,7 @@ public class Painter extends JFrame implements ActionListener {
    			drawPanel.setSize(draw_panel_width,draw_panel_height);
 
 			bufImg = new BufferedImage(draw_panel_width, draw_panel_height,BufferedImage.TYPE_3BYTE_BGR);
-			jlbImg = new JLabel(new ImageIcon(bufImg));//¦bJLabel¤W©ñ¸mbufImg¡A¥Î¨ÓÃ¸¹Ï
+			jlbImg = new JLabel(new ImageIcon(bufImg));//åœ¨JLabelä¸Šæ”¾ç½®bufImgï¼Œç”¨ä¾†ç¹ªåœ–
 			this.removeAll();
 			this.add(jlbImg);
 			jlbImg.setBounds(new Rectangle(0, 0, draw_panel_width, draw_panel_height));
@@ -1001,15 +1001,15 @@ public class Painter extends JFrame implements ActionListener {
 			redo_lim=count++;
 			jMenuItem[1][1].setEnabled(false);
 			
-   			//·s¼W¤@±iBufferedImage«¬ºA¦ÜbufImg_data[count]¡A¨Ã±NbufImgÃ¸»s¦ÜbufImg_data[count]//
+   			//æ–°å¢ä¸€å¼µBufferedImageå‹æ…‹è‡³bufImg_data[count]ï¼Œä¸¦å°‡bufImgç¹ªè£½è‡³bufImg_data[count]//
    			bufImg_data[count] = new BufferedImage(draw_panel_width, draw_panel_height, BufferedImage.TYPE_3BYTE_BGR);
    			Graphics2D g2d_bufImg_data = (Graphics2D) bufImg_data[count].getGraphics();
    			g2d_bufImg_data.drawImage(bufImg,0,0,this);
 
-			//§PÂ_®y¼Ğ¬°·s°_ÂI//
+			//åˆ¤æ–·åº§æ¨™ç‚ºæ–°èµ·é»//
 			press=0;
 			
-			//Åı´_­ìMenuItem¥i¥HÂI¿ï//
+			//è®“å¾©åŸMenuItemå¯ä»¥é»é¸//
    			if(count>0)
    				jMenuItem[1][0].setEnabled(true);
    			jMenuItem[1][2].setEnabled(false);
@@ -1039,7 +1039,7 @@ public class Painter extends JFrame implements ActionListener {
 				polygon.addPoint(x1, y1);
 				first=1;
 			}
-			//§PÂ_®y¼Ğ¬°·s°_ÂI//
+			//åˆ¤æ–·åº§æ¨™ç‚ºæ–°èµ·é»//
 			press=1;
 			chk=0;
 			if(cut!=2) cut=0;
@@ -1049,12 +1049,12 @@ public class Painter extends JFrame implements ActionListener {
     		x2=e.getX();
     		y2=e.getY();
     		
-    		if(step_chk==0)//±±¨î¨©¤ó¦±½u¥Î
+    		if(step_chk==0)//æ§åˆ¶è²æ°æ›²ç·šç”¨
     			step=1;
     		else if(step_chk==1)
     			step=2;
     		
-    		if(step_chk_arc==0)//±±¨î®°«¬¥Î
+    		if(step_chk_arc==0)//æ§åˆ¶æ‰‡å‹ç”¨
     			chk=step_arc=1;
     		else if(step_chk_arc==1)
     			chk=step_arc=2;
@@ -1073,7 +1073,7 @@ public class Painter extends JFrame implements ActionListener {
 				jMenuItem[1][3].setEnabled(true);
 			}
 
-    		if((step_chk==2 && step==2) || (step_chk_arc==2 && step_arc==2) || drawMethod==0 || drawMethod==1 || drawMethod==2 || drawMethod==3 || drawMethod==7 || drawMethod==8 || drawMethod==9 || cut==2){//·í¤£¬Oµe¨©¤ó¦±½u©Î¬O¤w¸g§¹¦¨¨©¤ó¦±½u®Éµe
+    		if((step_chk==2 && step==2) || (step_chk_arc==2 && step_arc==2) || drawMethod==0 || drawMethod==1 || drawMethod==2 || drawMethod==3 || drawMethod==7 || drawMethod==8 || drawMethod==9 || cut==2){//ç•¶ä¸æ˜¯ç•«è²æ°æ›²ç·šæˆ–æ˜¯å·²ç¶“å®Œæˆè²æ°æ›²ç·šæ™‚ç•«
 				toDraw();
     		}
 		}
@@ -1083,11 +1083,11 @@ public class Painter extends JFrame implements ActionListener {
 		}
 		
 		public void toDraw(){
-			if(x1<0 || y1<0) return;//¨¾¤î»~«ö
+			if(x1<0 || y1<0) return;//é˜²æ­¢èª¤æŒ‰
 			chk=3;
 			draw(x1,y1,x2,y2);
 			
-			//µe¥X¹Ï§Î¦ÜbufImg//
+			//ç•«å‡ºåœ–å½¢è‡³bufImg//
 			Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
 			if(cut!=2){
 				if(color_inside!=null && drawMethod!=8){
@@ -1105,19 +1105,19 @@ public class Painter extends JFrame implements ActionListener {
 			}
 			repaint();
 			clear();
-			//°O¿ı¥i­«°µ³Ì¤j¦¸¼Æ¡A¨ÃÅı­«°µ¤£¥i«ö//
+			//è¨˜éŒ„å¯é‡åšæœ€å¤§æ¬¡æ•¸ï¼Œä¸¦è®“é‡åšä¸å¯æŒ‰//
 			redo_lim=count++;
 			jMenuItem[1][1].setEnabled(false);
 			
-   			//·s¼W¤@±iBufferedImage«¬ºA¦ÜbufImg_data[count]¡A¨Ã±NbufImgÃ¸»s¦ÜbufImg_data[count]//
+   			//æ–°å¢ä¸€å¼µBufferedImageå‹æ…‹è‡³bufImg_data[count]ï¼Œä¸¦å°‡bufImgç¹ªè£½è‡³bufImg_data[count]//
    			bufImg_data[count] = new BufferedImage(draw_panel_width, draw_panel_height, BufferedImage.TYPE_3BYTE_BGR);
    			Graphics2D g2d_bufImg_data = (Graphics2D) bufImg_data[count].getGraphics();
    			g2d_bufImg_data.drawImage(bufImg,0,0,this);
    			
-			//§PÂ_®y¼Ğ¬°·s°_ÂI//
+			//åˆ¤æ–·åº§æ¨™ç‚ºæ–°èµ·é»//
 			press=0;
 			
-			//Åı´_­ìMenuItem¥i¥HÂI¿ï//
+			//è®“å¾©åŸMenuItemå¯ä»¥é»é¸//
    			if(count>0)
    				jMenuItem[1][0].setEnabled(true);
 		}
@@ -1125,7 +1125,7 @@ public class Painter extends JFrame implements ActionListener {
     	public void mouseEntered(MouseEvent e){}
     	public void mouseExited(MouseEvent e){}
     	public void mouseClicked(MouseEvent e){
-    		if(click==1){//³sÂI¨â¤U®É
+    		if(click==1){//é€£é»å…©ä¸‹æ™‚
     			toDraw();
     		}
     		click=1;
@@ -1154,23 +1154,23 @@ public class Painter extends JFrame implements ActionListener {
     	}
 		
 		public void draw(int input_x1,int input_y1,int input_x2,int input_y2){
-			if(drawMethod==0){//ª½½u®É¡AÅıshape¬°Line2D
+			if(drawMethod==0){//ç›´ç·šæ™‚ï¼Œè®“shapeç‚ºLine2D
 				shape=line2D;
 				line2D.setLine(input_x1,input_y1,input_x2,input_y2);
 			}
-			else if(drawMethod==1){//¯x«¬®É¡AÅıshape¬°Rectangle2D
+			else if(drawMethod==1){//çŸ©å‹æ™‚ï¼Œè®“shapeç‚ºRectangle2D
 				shape=rectangle2D;
 				rectangle2D.setRect(Math.min(input_x1,input_x2),Math.min(input_y1,input_y2),Math.abs(input_x1-input_x2),Math.abs(input_y1-input_y2));
 			}
-			else if(drawMethod==2){//¾ò¶ê®É
+			else if(drawMethod==2){//æ©¢åœ“æ™‚
 				shape=ellipse2D;
 				ellipse2D.setFrame(Math.min(input_x1,input_x2),Math.min(input_y1,input_y2),Math.abs(input_x1-input_x2),Math.abs(input_y1-input_y2));
 			}
-			else if(drawMethod==3){//¶ê¨¤¯x«¬
+			else if(drawMethod==3){//åœ“è§’çŸ©å‹
 				shape=roundRectangle2D;
 				roundRectangle2D.setRoundRect(Math.min(input_x1,input_x2),Math.min(input_y1,input_y2),Math.abs(input_x1-input_x2),Math.abs(input_y1-input_y2),10.0f,10.0f);
 			}
-			else if(drawMethod==4){//¨©¤ó¦±½u
+			else if(drawMethod==4){//è²æ°æ›²ç·š
 				shape=cubicCurve2D;
 				if(step==0){
 					cubicCurve2D.setCurve(input_x1,input_y1,input_x1,input_y1,input_x2,input_y2,input_x2,input_y2);
@@ -1191,8 +1191,8 @@ public class Painter extends JFrame implements ActionListener {
 					step_chk=2;
 				}
 			}
-			else if(drawMethod==5){//®°«¬¡Achk¥Î¨Ó¨¾¤î·N¥~ªºrepaint//
-				if(step_arc==0 || chk==1){//¨BÆJ±±¨î
+			else if(drawMethod==5){//æ‰‡å‹ï¼Œchkç”¨ä¾†é˜²æ­¢æ„å¤–çš„repaint//
+				if(step_arc==0 || chk==1){//æ­¥é©Ÿæ§åˆ¶
 					shape=ellipse2D;
 					ellipse2D.setFrame(Math.min(input_x1,input_x2),Math.min(input_y1,input_y2),Math.abs(input_x1-input_x2),Math.abs(input_y1-input_y2));
 					temp_x1=input_x1;
@@ -1201,7 +1201,7 @@ public class Painter extends JFrame implements ActionListener {
 					temp_y2=input_y2;
 					step_chk_arc=0;
 				}
-				else if(step_arc==1 || chk==2){//¨BÆJ±±¨î
+				else if(step_arc==1 || chk==2){//æ­¥é©Ÿæ§åˆ¶
 					shape=arc2D;
 
 					center_point_x = Math.min(temp_x1,temp_x2)+Math.abs(temp_x1-temp_x2)/2;
@@ -1217,7 +1217,7 @@ public class Painter extends JFrame implements ActionListener {
 					arc2D.setArc(Math.min(temp_x1,temp_x2),Math.min(temp_y1,temp_y2),Math.abs(temp_x1-temp_x2),Math.abs(temp_y1-temp_y2),start,0,pie_shape);
 					step_chk_arc=1;
 				}
-				else if(step_arc==2 || chk==3){//¨BÆJ±±¨î
+				else if(step_arc==2 || chk==3){//æ­¥é©Ÿæ§åˆ¶
 					shape=arc2D;
 					
 					double a = Math.pow(Math.pow(input_x2-center_point_x,2)+Math.pow(input_y2-center_point_y,2),0.5);
@@ -1232,10 +1232,10 @@ public class Painter extends JFrame implements ActionListener {
 					step_chk_arc=2;
 				}
 			}
-			else if(drawMethod==6){//¦hÃä«¬
+			else if(drawMethod==6){//å¤šé‚Šå‹
 				shape=polygon;
 			}
-			else if(drawMethod==7 || drawMethod==8){//¥ô·N½u¡®¾ó¥ÖÀ¿
+			else if(drawMethod==7 || drawMethod==8){//ä»»æ„ç·šï¼†æ©¡çš®æ“¦
     			Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
     			
     			shape=line2D;
@@ -1248,7 +1248,7 @@ public class Painter extends JFrame implements ActionListener {
 				g2d_bufImg.draw(shape);
 			}
 			
-			else if(drawMethod==9){//¤å¦r
+			else if(drawMethod==9){//æ–‡å­—
 				Graphics2D g2d_bufImg = (Graphics2D) bufImg.getGraphics();
         		FontRenderContext frc = g2d_bufImg.getFontRenderContext();
         		jDialog.show();
@@ -1262,11 +1262,11 @@ public class Painter extends JFrame implements ActionListener {
         		Tx.translate(input_x2,input_y2+sh);
         		shape = tl.getOutline(Tx);
 			}
-			else if(drawMethod==10){//¿ï¨ú¤u¨ã
+			else if(drawMethod==10){//é¸å–å·¥å…·
 				shape=rectangle2D;
 				rectangle2D.setRect(Math.min(input_x1,input_x2),Math.min(input_y1,input_y2),Math.abs(input_x1-input_x2),Math.abs(input_y1-input_y2));
 			}
-			if(color_border instanceof GradientPaint){//¨Ï¥Îº¥¼h¶ñ¦âÅª¨ú©ì©Ô®y¼Ğ
+			if(color_border instanceof GradientPaint){//ä½¿ç”¨æ¼¸å±¤å¡«è‰²è®€å–æ‹–æ‹‰åº§æ¨™
 				color_border = new GradientPaint( input_x1,input_y1, (Color)((GradientPaint)color_border).getColor1(), input_x2,input_y2, (Color)((GradientPaint)color_border).getColor2(), true );
 			}
 			if(color_inside instanceof GradientPaint){
@@ -1276,9 +1276,9 @@ public class Painter extends JFrame implements ActionListener {
 		
 		public void paint(Graphics g) {
 			Graphics2D g2d = (Graphics2D) g;
-			super.paint(g2d);//­«Ã¸©³¼hJPanel¥H¤Î¤W­±©Ò¦³¤¸¥ó
+			super.paint(g2d);//é‡ç¹ªåº•å±¤JPanelä»¥åŠä¸Šé¢æ‰€æœ‰å…ƒä»¶
 
-			if(press==1 && drawMethod!=10 && !(x1<0 || y1<0)) {//Ã¸¹Ï¦b³Ì¤W­±ªºJLabel¤W¡A¨Ã§PÂ_¬O¤£¬O°_ÂI¤~µe
+			if(press==1 && drawMethod!=10 && !(x1<0 || y1<0)) {//ç¹ªåœ–åœ¨æœ€ä¸Šé¢çš„JLabelä¸Šï¼Œä¸¦åˆ¤æ–·æ˜¯ä¸æ˜¯èµ·é»æ‰ç•«
 				draw(x1,y1,x2,y2);
 				if(drawMethod==8) return;
 				if(color_inside!=null){
@@ -1292,7 +1292,7 @@ public class Painter extends JFrame implements ActionListener {
 				}
 			}
 
-			if(drawMethod==10 && cut==0){//¿ï¨ú±±¨î¡B§PÂ_¬O§_¿ï¨ú¡B°Å¤U¡B©Î¶K¤W
+			if(drawMethod==10 && cut==0){//é¸å–æ§åˆ¶ã€åˆ¤æ–·æ˜¯å¦é¸å–ã€å‰ªä¸‹ã€æˆ–è²¼ä¸Š
 				g2d.setPaint(Color.black);
 				g2d.setStroke(basicStroke_select);
 				rectangle2D_select.setRect(Math.min(x1,x2),Math.min(y1,y2),Math.abs(x1-x2),Math.abs(y1-y2));
@@ -1308,7 +1308,7 @@ public class Painter extends JFrame implements ActionListener {
    				g2d.drawImage(bufImg_cut,x2,y2,this);
    			}
 
-			//¸òÀH´å¼Ğªº¶ê§Î//
+			//è·Ÿéš¨æ¸¸æ¨™çš„åœ“å½¢//
 			if(drawMethod==7 || drawMethod==8){
 				g2d.setPaint(Color.black);
 				g2d.setStroke(basicStroke_pen);
